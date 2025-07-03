@@ -6,9 +6,12 @@ public class Veiculo {
     private double preco;
     private String placa;
 
-//    public Veiculo(Carro carro){
-//        this.carro = carro;
-//    }
+    public Veiculo(String modelo, double preco, String placa) {
+        this.modelo = modelo;
+        this.preco = preco;
+        this.placa = placa;
+    }
+
 
     public void setPreco(double preco){
         this.preco = preco;
@@ -34,12 +37,16 @@ public class Veiculo {
         return placa;
     }
 
-    public double CalcularPreco(int dia){
-        return this.preco *= dia;
+
+    public String calcularPreco(int dia){
+        double valorAluguel = preco * dia;
+        String valorEmString = String.format("%.2f", valorAluguel);
+        return valorEmString;
     }
 
 
-    public void mover(){
+    public String mover(){
+        return "";
 
     }
 

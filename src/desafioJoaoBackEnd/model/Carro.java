@@ -1,6 +1,15 @@
 package desafioJoaoBackEnd.model;
+
+import java.util.Random;
+
 //
 public class Carro extends Veiculo {
+
+
+
+    public Carro(String modelo, double preco, String placa) {
+        super(modelo, preco, placa);
+    }
 
     @Override
     public double getPreco() {
@@ -34,13 +43,34 @@ public class Carro extends Veiculo {
 
 
     @Override
-    public double CalcularPreco(int dia) {
+    public String calcularPreco(int dia) {
 
         double precoDiario = getPreco() * dia;
-        double porcentagem = (10/100) * precoDiario;
+        double porcentagem = 0.1 * precoDiario;
         double valorTotal = precoDiario + porcentagem;
-        this.setPreco(valorTotal);
-        return getPreco();
 
+        String valorNormal = String.format("%.2f", precoDiario);
+        String valorEmString = String.format("%.2f", valorTotal);
+
+        return "Carro " + " - " + getModelo()
+                + " teve um acrescimo de 10%: "
+                +"R$"
+                + valorEmString
+                + " (Valor sem acréscimo: "
+                + "RS"
+                + valorNormal
+                + ")";
+
+    }
+
+    public String mover(){
+        Random random = new Random();
+        int quilometragem = random.nextInt(1, 300);
+
+        return "VRUUUUMMMMMMMM" + "O carro "
+                + getModelo()
+                +" moveu para o eixo y a "
+                + quilometragem
+                + "km por hora";
     }
 }

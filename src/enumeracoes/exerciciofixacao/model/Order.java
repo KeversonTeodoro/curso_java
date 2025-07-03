@@ -61,6 +61,7 @@ public class Order {
     }
 
     public double total(){
+
         double sum = 0;
         for(OrderItem orderItem : itensPedido){
             double valor = (double) orderItem.subTotal();

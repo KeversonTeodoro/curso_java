@@ -21,9 +21,13 @@ public class ExercicioPedidoApplication {
         SimpleDateFormat form = new SimpleDateFormat("dd/MM/yyyy");
 
         Date data1 = new Date();
+        System.out.print("Name: ");
 
         String name = input.nextLine();
+        System.out.print("Email: ");
         String email = input.nextLine();
+
+        System.out.print("Bithday: ");
         String data = input.next();
 
         Date dataBithday = form.parse(data);
@@ -36,12 +40,15 @@ public class ExercicioPedidoApplication {
         System.out.println(cliente2);
 
         System.out.println("Enter order data:");
+        System.out.print("Order Status: ");
 
-//        String statusString = input.nextLine().toUpperCase();
+
+        OrderStatus pedidoStatus = OrderStatus.valueOf(input.next());
+
 
 
         Date dataAtual = new Date();
-        Order pedido = new Order(dataAtual, PENDING_PAYMENT);
+        Order pedido = new Order(dataAtual, pedidoStatus);
         pedido.setCliente(cliente2);
 
 
@@ -56,9 +63,13 @@ public class ExercicioPedidoApplication {
 
 
         for (int i = 0; i < orderRange; i++) {
+            System.out.print("Name: ");
             input.nextLine();
             String productName = input.nextLine();
+            System.out.print("Price: ");
             double productPrice = input.nextDouble();
+
+            System.out.print("Quantity: ");
             int quatity = input.nextInt();
             Product produto = new Product(productName, productPrice);
             OrderItem itensPedido = new OrderItem(quatity, produto, productPrice);
